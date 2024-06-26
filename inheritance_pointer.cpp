@@ -52,6 +52,20 @@ class person{
 	
 	
 };
+class Admin : public person{
+public:
+    Admin(string name, int balance) : person(name, balance) {
+        cout << "Admin constructor" << endl;
+    }
+
+    // Overriding the info method
+   void info (){
+   		cout<<name<<endl;
+			cout<<*balance <<endl;
+   	
+   }
+};
+
 int main()
 {
 	person p1("Aaditya lamichhane",5000);
@@ -63,6 +77,13 @@ int main()
     //changing the pointer value that are allowed using the Deep copy 
 	*(p2.balance) = 6000;
 	p2.info();
+	
+	
+	
+	Admin a("Abiral",10000);
+	
+	a.info();
+	//making the child
 	
 	
 	
