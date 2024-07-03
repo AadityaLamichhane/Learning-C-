@@ -1,0 +1,25 @@
+the member pointer operator (->*) can indeed be overloaded in C++. However, the direct member access operator (.) cannot be overloaded. Here is the corrected information regarding which operators can and cannot be overloaded:
+
+Operators That Cannot Be Overloaded:
+Scope resolution operator (::)
+Member access operator (.)
+Conditional (ternary) operator (?:)
+Sizeof operator (sizeof)
+Typeid operator (typeid)
+Alignof operator (alignof)
+Noexcept operator (noexcept)
+New and delete operators (new, delete, new[], delete[]) for placement new and global scope
+Operators That Can Be Overloaded:
+Member pointer access operator (->*)
+Pointer-to-member operator (->)
+Arithmetic operators (+, -, *, /, %, etc.)
+Relational operators (==, !=, <, >, <=, >=)
+Logical operators (&&, ||, !)
+Bitwise operators (&, |, ^, ~, <<, >>)
+Assignment operators (=, +=, -=, *=, /=, %=)
+Increment and decrement operators (++, --)
+Subscript operator ([])
+Function call operator (())
+Comma operator (,)
+Dereference operator (*)
+Address-of operator (&)
