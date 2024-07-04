@@ -1,6 +1,6 @@
 the member pointer operator (->*) can indeed be overloaded in C++. However, the direct member access operator (.) cannot be overloaded. Here is the corrected information regarding which operators can and cannot be overloaded:
 
-Operators That Cannot Be Overloaded:
+Operators That Can Be Overloaded:
 Scope resolution operator (::)
 Member access operator (.)
 Conditional (ternary) operator (?:)

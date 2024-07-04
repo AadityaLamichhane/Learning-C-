@@ -19,7 +19,7 @@ class Complex{
 			real = rl;
 			imag = im;
 		}
-		Complex operator +(const Complex& obj){
+		Complex operator +(const Complex obj){
 			Complex res;
 			res.real = this->real+obj.real;
 			res.imag = this->imag+obj.imag;
@@ -28,8 +28,8 @@ class Complex{
 		}
 		Complex operator++(){
 			Complex temp = *this;
-			real  = real + 100;
-			imag  = imag - 100;
+			real  = real ++;
+			imag  = imag ++;
 			
 			return temp;
 		}
@@ -41,11 +41,14 @@ int main()
 {
 	Complex  c1(3.0,4.0);
 	Complex c2(1.0,2.0);
+
+	c1.display();
+	c2.display();
 	//this uses the addition opereator to add the inner elemeent of the opereator
 	Complex c3 = c1+c2;
 	c3.display();
 	Complex c4= ++c3;
-	c3.display();
+	c4.display();
 	
 	return 0;
 }
