@@ -30,6 +30,7 @@ int isFull(Queue* queue);
 Queue* enque(Queue* enq, int value );
 Queue* deque(Queue* enq);
 int peek(Queue *enq);
+void display(Queue* queue);
 
 int main()
 {
@@ -59,11 +60,18 @@ int main()
             peek(queue);
             break;
             case 5:
-            printf("Enter valid data");
+            display(queue);
+            break;
+            case 0 :
+            exit(0);
+            break;
             default:
+            printf("You want to exit press one to exit ");
+            scanf("%d",&options);
             if (options==1)
             {
-                break;
+                return 0;
+                
             }
         }
  }
@@ -89,7 +97,8 @@ Queue* enque(Queue* enq, int value ){
         // Get the thing started 
         enq->front = 0;
     }
-    enq->rear = enq->rear+1;
+    // Getting the front part of the queue on hitting the last tabel
+    enq->rear = (enq->rear+1)%(MAXSIZE);
     enq->items[enq->rear] = value;
     enq->size++;
     return enq;
@@ -103,13 +112,8 @@ Queue* enque(Queue* enq, int value ){
     }
     // Getting and deleting the front of the queue 
     // Shifting the queue to the fixed thing 
-    printf("The value in the front is %d",enq->front);
-    for(int i =enq->front ; i < (enq->rear) ; i++ )
-    {
-        // shifting the right most data into the 
-        enq->items[i] = enq->items[i+1]; 
-    }
-    enq->rear--;
+
+    enq->front = (enq->front+1) % MAXSIZE;
     enq->size--;
     // if queue is empty 
     if(isEmpty(enq))
@@ -118,6 +122,25 @@ Queue* enque(Queue* enq, int value ){
         enq->rear = -1;
     }
     return enq;
+}
+void display(Queue* queue) {
+    if (isEmpty(queue)) {
+        printf("Queue is empty\n");
+        return;
+    }
+    
+    printf("Circular Queue elements: ");
+    
+    int count = 0;
+    int i = queue->front;
+    
+    while (count < queue->size) {
+        printf("%d ", queue->items[i]);
+        i = (i + 1) % MAXSIZE;
+        count++;
+    }
+    
+    printf("\n");
 }
 int peek(Queue *enq){
     if(isEmpty(enq)){
