@@ -1,4 +1,5 @@
 #include<iostream>
+#include <cmath>
 int main()
 {
     int num;
@@ -25,6 +26,10 @@ int main()
         char temp ;
         std::cout<<"Chractor to know freq"<<std::endl;
         std::cin>>temp;
+        if (std::isnan(temp)){
+            std::cout << "Invalid input. Please enter a valid character." << std::endl;
+            continue;
+        }
         std::cout<<"The frequency of the alphabet using the hashing is "<<hash[temp-'a']<<std::endl;
 
     }
