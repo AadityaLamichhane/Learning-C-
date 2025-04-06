@@ -1,17 +1,17 @@
 #include<vector>
 #include<iostream>
 using namespace std;
-class Head{
+class Heap{
     vector <int> vec;
     public:
         void heapify(int parentIndex ) 
         {
-            if(parentIndex>vec.size()){
-                return ; 
+            if(parentIndex >= vec.size()){
+                return ;  
             }
             int maxId = parentIndex ; 
-            int leftindex = parentIndex* 2 + 1 ;
-            int rightindex  = parentIndex* 2 + 2 ;
+            int leftindex = parentIndex*2 + 1 ;
+            int rightindex  = parentIndex*2 + 2 ;
             // Comparing the value between the parent and the left and the right element to start 
              if( leftindex < vec.size() && vec[leftindex]>vec[parentIndex] ){
                 maxId = leftindex; 
@@ -19,7 +19,7 @@ class Head{
              if(rightindex < vec.size() && vec[rightindex]>vec[parentIndex]){
                 maxId = rightindex;
              }
-            swap(parentIndex ,maxId);
+            swap(vec[parentIndex] ,vec[maxId]);
             if(maxId != parentIndex){
                 heapify(maxId);
             }
@@ -45,9 +45,22 @@ class Head{
             // Compare the function from the
             heapify(0);
         }
+        int top (){
+            // gget the top of the heap 
+            return vec[0];
+        }
 };
 int main()
 {
-    cout<<"Enter the  "<<endl;
+    Heap h;
+    h.push(4);
+    h.push(8);
+    h.push(2);
+    h.push(21);
+    cout<<"Rank 0 = "<<h.top()<<endl;
+    h.pop();
+    cout<<"Rank 0 = "<<h.top()<<endl;
+    h.pop();
+    cout<<"Rank 0 = "<<h.top()<<endl;
     return 0;
 }
